@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:273c2b898b889873906656b1b778a655$ -->
+<TextureAtlas imagePath="spineboy_starling.png">
+    <SubTexture name="bow" x="125" y="128" width="65" height="261"/>
+    <SubTexture name="eyes-closed" x="67" y="195" width="34" height="27"/>
+    <SubTexture name="eyes" x="67" y="166" width="34" height="27"/>
+    <SubTexture name="head" x="2" y="2" width="121" height="132"/>
+    <SubTexture name="left-ankle" x="229" y="333" width="25" height="32"/>
+    <SubTexture name="left-arm" x="192" y="373" width="35" height="29"/>
+    <SubTexture name="left-foot" x="101" y="391" width="65" height="30"/>
+    <SubTexture name="left-hand" x="192" y="333" width="35" height="38"/>
+    <SubTexture name="left-lower-leg" x="192" y="151" width="49" height="64"/>
+    <SubTexture name="left-pant-bottom" x="192" y="309" width="44" height="22"/>
+    <SubTexture name="left-shoulder" x="2" y="446" width="34" height="53"/>
+    <SubTexture name="left-upper-leg" x="38" y="440" width="33" height="67"/>
+    <SubTexture name="neck" x="67" y="136" width="34" height="28"/>
+    <SubTexture name="pelvis" x="2" y="391" width="63" height="47"/>
+    <SubTexture name="right-ankle" x="229" y="367" width="25" height="30"/>
+    <SubTexture name="right-arm" x="229" y="399" width="21" height="45"/>
+    <SubTexture name="right-foot-idle" x="195" y="2" width="53" height="28"/>
+    <SubTexture name="right-foot" x="125" y="96" width="67" height="30"/>
+    <SubTexture name="right-hand" x="67" y="404" width="32" height="32"/>
+    <SubTexture name="right-lower-leg" x="195" y="85" width="51" height="64"/>
+    <SubTexture name="right-pant-bottom" x="192" y="217" width="46" height="18"/>
+    <SubTexture name="right-shoulder" x="195" y="32" width="52" height="51"/>
+    <SubTexture name="right-upper-leg" x="192" y="237" width="44" height="70"/>
+    <SubTexture name="torso" x="125" y="2" width="68" height="92"/>
+</TextureAtlas>

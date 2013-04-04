@@ -8,8 +8,6 @@
  ******************************************************************************/
 package spine
 {
-	import com.pblabs.engine.PBUtil;
-	
 	import spine.utils.MathUtils;
 
 	public class RotateTimeline extends CurveTimeline

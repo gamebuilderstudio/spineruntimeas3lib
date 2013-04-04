@@ -8,6 +8,8 @@
  ******************************************************************************/
 package spine
 {
+	import com.pblabs.rendering2D.spritesheet.TexturePackerSheetDivider;
+	
 	import flash.display.BitmapData;
 	
 	import spine.attachments.Basic2DAttachmentLoader;
@@ -41,9 +43,9 @@ package spine
 			return new SkeletonJson( textureAttachmentLoader );
 		}
 		
-		public static function createBasic2DSkeleton(atlas : TextureAtlas, atlasImageData : BitmapData):SkeletonJson
+		public static function createBasic2DSkeleton(divider : TexturePackerSheetDivider, sheetImageData : BitmapData):SkeletonJson
 		{
-			var basic2DAttachmentLoader : Basic2DAttachmentLoader = new Basic2DAttachmentLoader(atlas, atlasImageData);
+			var basic2DAttachmentLoader : Basic2DAttachmentLoader = new Basic2DAttachmentLoader(divider, sheetImageData);
 			return new SkeletonJson( basic2DAttachmentLoader );
 		}
 

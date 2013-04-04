@@ -23,18 +23,14 @@ package spine.attachments
 	/** Attachment that displays a Starling texture region. */
 	public class StarlingRegionAttachment extends RegionAttachment {
 
-		protected var _region : Rectangle;
 		protected var _texture : Texture;
 		protected var _image : Image;
-		protected var _frame : Rectangle;
-		
 		
 		public function StarlingRegionAttachment (name : String) : void {
 			super(name);
 		}
 		
 		override public function draw (displayObject : *, slot : Slot) : void {
-			if (_region == null) throw new Error("RegionAttachment is not setup: " + this);
 			if (_texture == null) throw new Error("RegionAttachment is not setup: " + this);
 			
 			var batch : QuadBatch = displayObject as QuadBatch;
@@ -59,27 +55,6 @@ package spine.attachments
 			_image.scaleY = this._worldScaleY;
 			
 			batch.addImage(_image);
-		}
-		
-		public function set region (region : Rectangle) : void {
-			if (region == null) throw new Error("region cannot be null.");
-			_region = region;
-			updateOffset();
-		}
-		
-		public function get region () : Rectangle {
-			if (_region == null) throw new Error("RegionAttachment is not resolved: " + this);
-			return _region;
-		}
-		
-		public function set frame (frame : Rectangle) : void {
-			_frame = frame;
-			if(_region && _frame)
-				updateOffset();
-		}
-		
-		public function get frame () : Rectangle {
-			return _frame;
 		}
 		
 		public function set texture (texture : Texture) : void {

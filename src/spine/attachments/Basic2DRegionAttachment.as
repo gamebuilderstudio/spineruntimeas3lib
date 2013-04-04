@@ -26,7 +26,7 @@ package spine.attachments
 		protected var worldPosition : Rectangle = new Rectangle(); 
 
 		protected var _region : Rectangle;
-		protected var _imageData : BitmapData;
+		protected var _sheetImageData : BitmapData;
 		protected var _regionData : BitmapData;
 		protected var _frame : Rectangle;
 		protected var _image : Bitmap;
@@ -37,8 +37,7 @@ package spine.attachments
 		}
 		
 		override public function draw (displayObject : *, slot : Slot) : void {
-			if (_region == null) throw new Error("RegionAttachment is not setup: " + this);
-			if (_imageData == null) throw new Error("RegionAttachment is not setup: " + this);
+			if (_region == null || _sheetImageData == null) throw new Error("RegionAttachment is not setup: " + this);
 			
 			var container : Sprite = displayObject as Sprite;
 
@@ -46,7 +45,7 @@ package spine.attachments
 			var centerY : Number = height / 2;
 			if(!_image){
 				_regionData = new BitmapData(_region.width, _region.height);
-				_regionData.copyPixels(_imageData, _region, new Point() );
+				_regionData.copyPixels(_sheetImageData, _region, new Point() );
 				_image = new Bitmap(_regionData);
 				_imageContainer.addChild(_image);
 				_image.smoothing = true;
@@ -77,24 +76,14 @@ package spine.attachments
 			return _region;
 		}
 		
-		public function set frame (frame : Rectangle) : void {
-			_frame = frame;
-			if(_region && _frame)
-				updateOffset();
-		}
-		
-		public function get frame () : Rectangle {
-			return _frame;
-		}
-		
 		public function set image (imageData : BitmapData) : void {
 			if (imageData == null) throw new Error("Image cannot be null.");
-			_imageData = imageData;
+			_sheetImageData = imageData;
 		}
 		
 		public function get image () : BitmapData {
-			if (_imageData == null) throw new Error("RegionAttachment is not resolved: " + this);
-			return _imageData;
+			if (_sheetImageData == null) throw new Error("RegionAttachment is not resolved: " + this);
+			return _sheetImageData;
 		}
 		
 	}

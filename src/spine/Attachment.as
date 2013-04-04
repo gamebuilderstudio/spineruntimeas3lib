@@ -10,6 +10,9 @@ package spine
 {
 	import spine.Slot;
 	
+	/**
+	 * Base attachment class for all Spine skin attachments
+	 **/
 	public class Attachment {
 		protected var _name : String;
 		
@@ -20,7 +23,7 @@ package spine
 
 		public function draw (displayObject : *, slot : Slot):void
 		{
-			
+			throw new Error("Draw method should be implemented by subclasses");
 		}
 		
 		public function get name () : String {

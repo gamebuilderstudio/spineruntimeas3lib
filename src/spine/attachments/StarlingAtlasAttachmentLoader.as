@@ -43,15 +43,11 @@ package spine.attachments
 			}
 			
 			if (attachment is StarlingRegionAttachment) {
-				var region : Rectangle = _atlas.getRegion(attachment.name);
 				var texture : Texture = _atlas.getTexture(attachment.name);
-				var frame : Rectangle = _atlas.getFrame(attachment.name);
 
 				if (texture == null)
 					throw new Error("Region not found in atlas: " + attachment + " (" + type + " attachment: " + name + ")");
-				(attachment as StarlingRegionAttachment).region = region;
 				(attachment as StarlingRegionAttachment).texture = texture;
-				(attachment as StarlingRegionAttachment).frame = frame;
 			}
 			
 			return attachment;

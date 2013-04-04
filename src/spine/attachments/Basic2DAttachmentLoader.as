@@ -8,6 +8,8 @@
  ******************************************************************************/
 package spine.attachments
 {
+	import com.pblabs.rendering2D.spritesheet.TexturePackerSheetDivider;
+	
 	import flash.display.BitmapData;
 	import flash.geom.Rectangle;
 	
@@ -19,12 +21,12 @@ package spine.attachments
 	import starling.textures.TextureAtlas;
 	
 	public class Basic2DAttachmentLoader implements AttachmentLoader {
-		private var _atlas : TextureAtlas;
+		private var _divider : TexturePackerSheetDivider;
 		private var _image : BitmapData;
 		
-		public function Basic2DAttachmentLoader (atlas : TextureAtlas, image : BitmapData) : void {
-			if (atlas == null) throw new Error("atlas cannot be null.");
-			this._atlas = atlas;
+		public function Basic2DAttachmentLoader (divider : TexturePackerSheetDivider, image : BitmapData) : void {
+			if (divider == null) throw new Error("divider cannot be null.");
+			this._divider = divider;
 			this._image = image;
 		}
 		
@@ -37,21 +39,14 @@ package spine.attachments
 				case AttachmentTypeEnum.REGION:
 					attachment = new Basic2DRegionAttachment(name);
 					break;
-				case AttachmentTypeEnum.REGION_SEQUENCE:
-					//TODO : Support Region sequence
-					//attachment = new RegionSequenceAttachment(name);
-					break;
 				default:
 					throw new Error("Unknown attachment type: " + type.name);
 			}
 			
 			if (attachment is Basic2DRegionAttachment) {
-				var region : Rectangle = _atlas.getRegion(attachment.name);
-				var frame : Rectangle = _atlas.getFrame(attachment.name);
-
-				if (_image == null)
-					throw new Error("Image not found for atlas: " + attachment + " (" + type + " attachment: " + name + ")");
-				(attachment as Basic2DRegionAttachment).frame = frame;
+				var region : Rectangle = _divider.getFrameByName(attachment.name);
+				if (region == null)
+					throw new Error("Region not found in sprite sheet: " + attachment + " (" + type + " attachment: " + name + ")");
 				(attachment as Basic2DRegionAttachment).region = region;
 				(attachment as Basic2DRegionAttachment).image = _image;
 			}
